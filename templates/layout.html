@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="../static/homepage.js"></script>
+        <style>
+            #head{
+                margin-bottom:40px;
+            }
+            .container{
+                margin:50px;
+                text-align:center;            
+            }
+        </style>
+    </head>
+    <body>
+        {% block nav %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                {% block head %}
+                    <a class="navbar-brand" href="/">1990s Films</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/add_item">Add Item</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/search">Search</a>
+                            </li>
+                        </ul>
+                {% endblock %}
+                    </div>
+            </nav>
+            <div class="container">
+                <h3 id="head">Discover popular films from the 90's that you must watch</h3> 
+                <br><br>        
+                <div id="window" class="row">
+                </div>       
+            </div>
+        {% endblock %}   
+    </body>
+</html>

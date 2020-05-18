@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="../static/search.js"></script>     
+        
+    </head>
+{% extends "/layout.html" %}    
+    <body>
+            {% block nav %}
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    {% block head %}
+                        {{ super() }}             
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">        
+                                <li class="nav-item active">
+                                <!-- <a class="nav-link" href="/view">View_item</a> -->
+                                </li>         
+                            </ul> 
+                             </div>      
+                            <form id="search_form" class="form-inline my-2 my-lg-0">
+                                <input id="input" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button id="search" class="btn btn-outline-success" type="submit">Go</button>
+                            </form>                               
+                    {% endblock %}
+                </nav>
+    
+            
+             <div class="container">
+                <br><br>        
+                <div id="window" class="row">
+                </div>            
+            </div>  
+            {% endblock %}                
+    </body>
+</html>
+
+
+

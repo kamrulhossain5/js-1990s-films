@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="../static/add_item.js"></script>
+        <style>
+            .container{
+            margin:50px;
+            text-align:center;            
+            }
+            .attr{
+            margin:10px;
+            }
+            #head{
+            margin-bottom:40px;
+            }
+            #ajaxForm{
+            text-align:left;
+            }
+            .bold{
+            font-weight: bold;
+            }
+        </style>
+    </head>
+{% extends "/layout.html" %}    
+    <body>
+        {% block nav %}        
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                {% block head %}
+                    {{ super() }}            
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">        
+                            <li class="nav-item active">
+                                <!-- <a class="nav-link" href="/view_item">View_item</a> -->
+                            </li>         
+                        </ul> 
+                    </div>
+                {% endblock %}         
+            </nav>
+            <div class="container">
+                    <h3 id="head">Input the film information you want to add:</h3>        
+                <div class="row">    
+                    
+                    <div class="col-md-2"></div>
+                    <form id="add_form" class="col-md-8" method="post" target="hidden_frame">
+                        <span class="bold">Imdb Id: </span><input type="text" name="imdbId" class="attr"/><br>
+                        <span class="bold">Imdb Link: </span><input type="text" name="Imdb Link" class="attr"/><br>                        
+                        <span class="bold">Title: </span><input type="text" name="Title" class="attr"/><br>
+                        <span class="bold">Genre: </span><input type="text" name="Genre" class="attr"/><br>
+                        <span class="bold">Poster: </span><input type="text" name="Poster" class="attr"/><br>
+                        <span class="bold">Director: </span><input type="text" name="Director" class="attr"/><br>
+                        <span class="bold">Actors: </span><input type="text" name="Actors" class="attr"/><br>
+                        <span class="bold">Runtime (Minutes): </span><input type="text" name="Runtime(Minutes)" class="attr"/><br>
+                        <span class="bold">Rating: </span><input type="text" name="Rating" class="attr"/><br>
+                        <span class="bold">Votes: </span><input type="text" name="Votes" class="attr"/><br>
+                        <span class="bold">Revenue (Millions): </span><input type="text" name="Revenue(Millions)" class="attr"/><br>
+                        <span class="bold">Metascore: </span><input type="text" name="Metascore" class="attr"/><br>
+                        <span class="bold">Summary: </span><input type="text" name="Summary" class="attr"/><br><br>
+                        <button id="submit" class="btn btn-primary col-md-2" type="submit">Submit</button>
+                    </form>   
+                    <div id="link" class="col-md-2"></div>  
+                    <iframe name="hidden_frame" id="hidden_frame" style="display:none"></iframe>
+                </div>
+            </div>
+        {% endblock %}  
+    </body>
+</html>
+
+
+

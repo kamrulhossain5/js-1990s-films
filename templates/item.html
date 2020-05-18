@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        
+        <!-- <script src="../static/item.js"></script> -->
+        <script type="text/javascript" src="{{ url_for('static', filename = 'item.js') }}"></script>
+        <script>
+            
+        </script>
+    </head>
+    <style>
+        img{
+        margin-top:10px;
+        margin-bottom:20px;
+        margin-right:20px;
+        }
+        .row{
+        margin-bottom:15px;
+        }
+        .bold{
+        font-weight: bold;
+        }
+        .large-font{
+            font-size: 6vh;
+        }
+        .semi-large{
+            font-size: 3vh;
+        }
+        .add-rating{
+            cursor: pointer;
+        }
+    </style>
+{% extends "/layout.html" %}    
+    <body>
+            {% block nav %}
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    {% block head %}
+                        {{ super() }}             
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">        
+                                <li class="nav-item active">
+                                <!-- <a class="nav-link" href="/view">View_item</a> -->
+                                </li>         
+                            </ul> 
+                             </div>      
+                    {% endblock %}
+                </nav>
+         
+             <div class="container">
+                <br><br>        
+                <div id="window2" class="row align-items-center">
+                    <div class="col bold semi-large">{{item["Title"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><img src="{{item['Poster']}}" alt="Poster Image"/></div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Genre:</span> {{item["Genre"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Runtime (Minutes):</span> {{item["Runtime (Minutes)"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Director:</span> {{item["Director"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Actors:</span> {{item["Actors"]}}</div>
+                    <div class="w-100"></div><br>
+                    <div class="col" id="rating"><span class="bold">Rating:</span> {{item["Rating"]}}</div>
+                    <div class="col"><button class="btn btn-primary" id="edit1">Add/Edit Rating</button></div>
+                    <form id="rating_form" method="post" target="hidden_frame">
+                        <input type="text" name="inputRating" class="attr" placeholder="Rating" id="ratingInput"/>
+                        <button class="btn btn-success" id="submit1" type="submit">Submit</button>
+                    </form>
+                    <button class="btn btn-danger" id="discard1">Discard Changes</button>
+                    <div class="col"><button class="btn btn-danger" id="redBtn1">X</button></div>
+                    <button class="btn btn-secondary" id="undo1">Undo</button>
+                    <div class="w-100"></div>
+                    <div class="col" id="votes"><span class="bold">Votes:</span> {{item["Votes"]}}</div>
+                    <div class="col"><button class="btn btn-primary" id="edit2">Add/Edit Votes</button></div>
+                    <form id="votes_form" method="post" target="hidden_frame">
+                        <input type="text" name="inputVotes" class="attr" placeholder="Votes" id="votesInput"/>
+                        <button class="btn btn-success" id="submit2" type="submit">Submit</button>
+                    </form>
+                    <button class="btn btn-danger" id="discard2">Discard Changes</button>
+                    <div class="col"><button class="btn btn-danger" id="redBtn2">X</button></div>
+                    <button class="btn btn-secondary" id="undo2">Undo</button>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Metascore:</span> {{item["Metascore"]}}</div>
+                    <div class="w-100"></div><br>
+                    <div class="col"><span class="bold">Summary:</span> {{item["Summary"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Revenue (Millions):</span> {{item["Revenue (Millions)"]}}</div>
+                    <div class="w-100"></div>
+                    <div class="col"><span class="bold">Imdb Link:</span> {{item["Imdb Link"]}}</div>
+                    <div class="w-100"></div>                
+                    <div class="col"><span class="bold">imdb Id:</span> {{item["imdbId"]}}</div>
+                </div>
+                <iframe name="hidden_frame" id="hidden_frame" style="display:none"></iframe>
+            </div>  
+            {% endblock %}   
+    </body>
+</html>
+
